@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\CursorSetter.cs">
+    <Files>
+      <File FileName="Assets\Scripts\AI\Enemies\Spinner\SpinnerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\CursorSetter.cs" Line="29" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\CameraControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Pause.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\BulletBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Fader.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

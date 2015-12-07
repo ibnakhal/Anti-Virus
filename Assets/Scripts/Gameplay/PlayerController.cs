@@ -1,0 +1,182 @@
+﻿/*************************
+--------------------------
+|*   PlayerController.cs*|
+|*   Ibrahim Nakhal     *|
+|*   Student            *|
+|*   AAU Game Design    *|
+--------------------------
+*************************/
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+// Enforces attatchment of required component
+[RequireComponent(typeof(CharacterMover))]
+public class PlayerController : MonoBehaviour 
+{
+    //Variables being declared
+    [SerializeField] 
+    public float jumpSpeed = 15.0f, runSpeed = 3.0f, turnSpeed = 180.0f, jSet,rSet,tSet,jTro = 9f,rTro=2f,tTro=100.0f, spawnTimer;
+    [SerializeField]
+    private string forwardBackInput = "Vertical", leftRighInput = "Horizontal";
+    [SerializeField]
+    private CharacterMover mover = null;
+    [SerializeField]
+    public int health, maxHp, warningShowLimit,gameOver;
+    [SerializeField]
+    public bool trojand = false, trojan1 = false, Maled = false;
+    [SerializeField]
+    private Text txt, hTxt;
+    [SerializeField]
+    private GameObject spawn;
+    /// <summary>
+    /// On level start retrieves reference to the CharacterMover to ensure communication between the two scripts
+    /// </summary>
+    public void Start()
+    {
+        mover = this.GetComponent<CharacterMover>();
+        jSet = jumpSpeed;
+        rSet = runSpeed;
+        tSet = turnSpeed;
+        txt.enabled = true;
+        txt.text = "";
+        StartCoroutine(Spawned(spawnTimer));
+
+    }
+
+    public IEnumerator Spawned(float time)
+    {
+        yield return new WaitForSeconds(time);
+        spawn.SetActive (false);
+    }
+
+
+    /// <summary>
+    /// Applies referenced inputs to the referenced mover
+    /// </summary>
+    public void Update()
+    {
+        //ensures that the player does not exponentially increase speed
+        mover.ZeroOutVelocity();
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            mover.Jump(jumpSpeed);
+        }
+
+        // Compresses inputs with modified speeds to a single variable
+        float forwardBack = Input.GetAxis(forwardBackInput) * runSpeed;
+        float leftRight = Input.GetAxis(leftRighInput) * runSpeed;
+
+        mover.Move(forwardBack, leftRight);
+
+        float hpPercent = (((float)health/(float)maxHp)*100);
+        hpPercent = Mathf.Round(hpPercent * 1f) / 1f;
+
+        hTxt.text = ("Memory Space : " + hpPercent + "%");
+
+        if (hpPercent < 50)
+        {
+            hTxt.color = Color.yellow;
+            
+            if (hpPercent < 25)
+            {
+                hTxt.color = Color.red;
+            }
+        }
+        else
+        {
+            hTxt.color = Color.green;
+        }
+
+
+        if(trojand)
+        {
+            if (!trojan1)
+            {
+                Trojan();
+
+                StartCoroutine(Warner("Trojan Infection Detected"));
+                trojan1 = true;
+            }
+        }
+        else
+        {
+            
+            turnSpeed = tSet;
+            runSpeed = rSet;
+            jumpSpeed = jSet;
+            trojan1 = false;
+            trojand = false;
+        }
+
+        if(health>maxHp)
+        {
+            health = maxHp;
+        }
+        if(health <= 0)
+        {
+            Application.LoadLevel(gameOver);
+        }
+    }
+
+    public void HealUp(int hp)
+    {
+        health = health + hp;
+        trojand = false;
+        StartCoroutine(Warner("New Program Patch"));
+    }
+
+    public void MaxUp(int max)
+    {
+        maxHp = maxHp + max;
+        health += maxHp;
+        trojand = false;
+        StartCoroutine(Warner("Security Update Installed"));
+    }
+
+
+    public void Trojan()
+    {
+        jumpSpeed = jTro;
+        runSpeed = rTro;
+        turnSpeed = tTro;
+    }
+    public IEnumerator Warner(string message)
+    {
+        Debug.Log(message);
+            
+            txt.text = message;
+
+            
+            yield return new WaitForSeconds(1);
+            txt.text = "";
+            yield return new WaitForSeconds(1);
+            txt.text = message;
+            yield return new WaitForSeconds(1);
+            txt.text = "";
+            yield return new WaitForSeconds(1);
+            txt.text = message;
+            yield return new WaitForSeconds(1);
+            txt.text = "";
+    }
+    
+    public void Ouch(int damage)
+    {
+        health -= damage;
+    }
+
+    public IEnumerator Mal(int time)
+    {
+        while (Maled == true)
+        {
+            yield return new WaitForSeconds(time);
+            Malware();
+        }
+    }
+    
+    public void Malware()
+    {
+        health -= 1;
+    }
+
+    }

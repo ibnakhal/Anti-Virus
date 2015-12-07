@@ -1,0 +1,12 @@
+Z:\Anti-Virus\Build\Temp\bin\Debug\Assembly-CSharp.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\Assembly-CSharp.pdb
+Z:\Anti-Virus\Build\Temp\bin\Debug\UnityEditor.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\UnityEngine.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\UnityEngine.UI.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\Mono.Cecil.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\nunit.framework.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\Unity.DataContract.dll
+Z:\Anti-Virus\Build\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+Z:\Anti-Virus\Build\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+Z:\Anti-Virus\Build\obj\Debug\Assembly-CSharp.dll
+Z:\Anti-Virus\Build\obj\Debug\Assembly-CSharp.pdb
