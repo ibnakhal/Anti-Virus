@@ -29,6 +29,8 @@ public class Pause : MonoBehaviour
          cM = Camera.main;
          pL = GameObject.FindGameObjectWithTag("Player");
          txt.enabled = false;
+        AudioListener.pause = false;
+
 
     }
 
@@ -54,7 +56,7 @@ public class Pause : MonoBehaviour
          {
              txt.enabled = false;
              Time.timeScale = 1f;
-             cM.GetComponent<AudioSource>().Play();
+            AudioListener.pause = false;
  
 
 
@@ -65,9 +67,7 @@ public class Pause : MonoBehaviour
              Time.timeScale = 0f;
              txt.text = pTxt;
              txt.enabled = true;
-             AudioSource aS = cM.GetComponent<AudioSource>();
-             aS.Pause();
-  
+            AudioListener.pause = true;
               
          }
      }

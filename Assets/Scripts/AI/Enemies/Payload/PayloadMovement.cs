@@ -34,6 +34,15 @@ public class PayloadMovement : MonoBehaviour
 
 
     [SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip moveClip;
+    [SerializeField]
+    private AudioClip triggerClip;
+    [SerializeField]
+    private AudioClip alarmClip;
+
+    [SerializeField]
     private GameObject Explosion;
     [SerializeField]
     private GameObject Death;
@@ -59,7 +68,8 @@ public class PayloadMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        source.clip = moveClip;
+        source.Play();
     }
 
     // Update is called once per frame
@@ -69,6 +79,7 @@ public class PayloadMovement : MonoBehaviour
 
         if (charging)
         {
+
             timer += Time.deltaTime;
 
             lerpValue = (timer / duration);
@@ -88,28 +99,32 @@ public class PayloadMovement : MonoBehaviour
         }
 
     }
-    public void OnTriggerEnter(Collider Other)
+    public void OnCollisionEnter(Collision collision)
     {
-        if (!triggered)
+        Debug.Log("I HIT");
+        Vector3 normal = collision.contacts[0].normal;
+
+        Collider Other = collision.collider;
+
+        if (Other.tag == "wall")
         {
+            Debug.Log("WAll hit");
+            //           Vector3 kiddy = Other.transform.FindChild("DIRECT").forward;
+            vector = Vector3.Reflect(this.transform.forward, normal);
+            this.transform.LookAt(this.transform.position + vector);
+            Move();
+        }
+        if (Other.tag == "Bullet")
+        {
+            Destroy(this.gameObject);
+        }
 
-            if (Other.tag == "wall")
-            {
-
-                Vector3 kiddy = Other.transform.FindChild("DIRECT").forward;
-                vector = Vector3.Reflect(this.transform.forward, kiddy);
-                this.transform.LookAt(this.transform.position + vector);
-                Move();
-            }
-
-            if (Other.tag == "Player")
-            {
-                player = Other.transform;
-                StartCoroutine(Looking());
-                charging = true;
-            }
+        if (Other.tag == "Player")
+        {
+            Other.GetComponent<PlayerController>().Ouch(dmg);
         }
     }
+
     public void Move()
     {
         this.transform.Translate(Vector3.forward * Time.deltaTime * force);
@@ -142,23 +157,34 @@ public class PayloadMovement : MonoBehaviour
     }
     public IEnumerator Pulsation()
     {
+        source.clip = alarmClip;
+        source.loop = false;
+        source.Play();
+        yield return new WaitForSeconds(alarmClip.length);
+        source.clip = triggerClip;
+    
         while (isActiveAndEnabled)
         {
             if (duration <=0)
             {
                 Kamikazee();
             }
+
             charging = true;
             yield return new WaitForSeconds(duration);
             charging = false;
             //            lerpValue = 0;
             timer = 0;
+            source.Play();
+
             pulsing = true;
             yield return new WaitForSeconds(duration);
             pulsing = false;
             //            lerpValue = 0;
+
             timer = 0;
             duration -= 0.01f;
+
             if (force <= 8)
             {
                 force += 0.5f;
