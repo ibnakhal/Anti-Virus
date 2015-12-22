@@ -99,6 +99,22 @@ public class PayloadMovement : MonoBehaviour
         }
 
     }
+    public void OnTriggerEnter(Collider Other)
+    {
+        if (!triggered)
+        {
+
+            if (Other.tag == "Player")
+            {
+                player = Other.transform;
+                StartCoroutine(Looking());
+                charging = true;
+
+            }
+        }
+    }
+
+
     public void OnCollisionEnter(Collision collision)
     {
         Debug.Log("I HIT");
@@ -114,16 +130,8 @@ public class PayloadMovement : MonoBehaviour
             this.transform.LookAt(this.transform.position + vector);
             Move();
         }
-        if (Other.tag == "Bullet")
-        {
-            Destroy(this.gameObject);
-        }
-
-        if (Other.tag == "Player")
-        {
-            Other.GetComponent<PlayerController>().Ouch(dmg);
-        }
     }
+
 
     public void Move()
     {
