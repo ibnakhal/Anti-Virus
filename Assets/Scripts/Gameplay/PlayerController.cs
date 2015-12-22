@@ -174,19 +174,20 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Mal(int time)
     {
-        while (Maled == true)
+
+        Debug.Log("Time modifier recieved: "+time);
+        while (Maled)
         {
-            yield return new WaitForSeconds(time);
-            Malware();
+
+           // yield return new WaitForSeconds(time);
+            Debug.Log("Infected Loop");
+
+            health -= 1;
         }
-    }
-    
-    public void Malware()
-    {
-        health -= 1;
+        Debug.Log("It Ended");
+        yield return new WaitForSeconds(time);
+
     }
 
 
-
-    
-    }
+}

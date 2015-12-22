@@ -36,13 +36,13 @@ public class CryoAI : MonoBehaviour {
         {
             this.gameObject.transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-        if(lefty)
+        if(lefty && isActiveAndEnabled)
         {
             Debug.Log("Rotation Confirmed");
             minime.transform.Rotate(Vector3.right * Time.deltaTime * turnSpeed);
 
         }
-        if(righty)
+        if(righty && isActiveAndEnabled)
         {
             minime.transform.Rotate(Vector3.left * Time.deltaTime * turnSpeed);
 

@@ -44,22 +44,11 @@ public class BulletBehavior : MonoBehaviour
         print(Other.tag);
         if (Other.tag == "Enemy" || Other.tag == "Head" || Other.tag == "Baby" || Other.tag == "Boss")
         {
-            if (Other.tag == "Baby")
-            {
-                Other.GetComponentInParent<EnemyHealthScript>().GetHurt(damage);
-            }
-            if (Other.tag == "Boss")
-            {
-                Other.GetComponent<NyxemBasicBehavior>().GetHurt(damage);
-                Other.GetComponent<CodeRedBasicBehavior>().GetHurt(damage);
-            }
-            else
-            {
-                Other.GetComponent<EnemyHealthScript>().GetHurt(damage);
-            }
+            Other.gameObject.SendMessage("GetHurt", damage);
+            
 
         }
-        if (Other.tag != "Gun" && Other.tag != "Player")
+        if (Other.tag != "Gun" && Other.tag != "Player" && Other.tag != "Untagged")
         {
 
             GameObject clone = Instantiate(explosion, this.transform.position, this.transform.rotation) as GameObject;

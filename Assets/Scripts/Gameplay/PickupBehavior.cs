@@ -22,6 +22,7 @@ public class PickupBehavior : MonoBehaviour
         max,
         trojanHp,
         malware,
+
     }
     [SerializeField]
     private Type typheus;
@@ -58,6 +59,7 @@ public class PickupBehavior : MonoBehaviour
                     pC.trojand = true;
                     break;
                 case Type.malware:
+                    Debug.Log("Boombooom");
                     pC.Maled = true;
                     StartCoroutine(pC.Mal(modifier));
                     break;

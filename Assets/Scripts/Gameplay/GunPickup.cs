@@ -9,16 +9,26 @@ public class GunPickup : MonoBehaviour
     private int gunID, ammoToAdd = 0;
     [SerializeField]
     Vector3 direction = new Vector3(0, 0, 0);
- 
+    [SerializeField]
+    private bool notGun;
+
+
+
     public void OnTriggerEnter(Collider Other)
     {
         if(Other.tag == "Player")
         {
             gControl = Other.GetComponent<GunManager>();
-            gControl.m_WeaponList[gunID].owned = true;
+
+            if (!notGun)
+            {
+                gControl.m_WeaponList[gunID].owned = true;
+
+            }
             gControl.m_WeaponList[gunID].ammo += ammoToAdd;
             Destroy(this.gameObject);
         }
+
     }
     
     public void Update()
