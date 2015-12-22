@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CharacterMover mover = null;
     [SerializeField]
-    public int health, maxHp, warningShowLimit,gameOver;
+    public int health, maxHp, warningShowLimit,gameOver, cryoHit, cryoMax;
     [SerializeField]
     public bool trojand = false, trojan1 = false, Maled = false;
     [SerializeField]
@@ -73,6 +73,13 @@ public class PlayerController : MonoBehaviour
         hpPercent = Mathf.Round(hpPercent * 1f) / 1f;
 
         hTxt.text = ("Memory Space : " + hpPercent + "%");
+
+
+        if(cryoHit >= cryoMax)
+        {
+            //SCREEN MELTING GOES HERE
+            health = 0;
+        }
 
         if (hpPercent < 50)
         {
@@ -179,4 +186,7 @@ public class PlayerController : MonoBehaviour
         health -= 1;
     }
 
+
+
+    
     }
