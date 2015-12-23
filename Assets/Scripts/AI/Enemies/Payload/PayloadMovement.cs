@@ -70,6 +70,8 @@ public class PayloadMovement : MonoBehaviour
     {
         source.clip = moveClip;
         source.Play();
+        vector = new Vector3(Random.Range(-360, 360), Random.Range(-360, 360), Random.Range(-360, 360));
+
     }
 
     // Update is called once per frame
@@ -126,16 +128,21 @@ public class PayloadMovement : MonoBehaviour
         {
             Debug.Log("WAll hit");
             //           Vector3 kiddy = Other.transform.FindChild("DIRECT").forward;
-            vector = Vector3.Reflect(this.transform.forward, normal);
-            this.transform.LookAt(this.transform.position + vector);
+            vector = Vector3.Reflect(vector, normal);
+            //this.transform.LookAt(this.transform.position + vector);
             Move();
+        }
+        if (Other.gameObject.tag == "Player")
+        {
+            Debug.Log("I TOUCHED THE BUTT");
+            Kamikazee();
         }
     }
 
 
     public void Move()
     {
-        this.transform.Translate(Vector3.forward * Time.deltaTime * force);
+        this.transform.Translate(vector * Time.deltaTime * force);
     }
 
 
@@ -157,8 +164,8 @@ public class PayloadMovement : MonoBehaviour
             for (int x = 0; x < turnCounter; x++)
             {
                 Vector3 targeting = new Vector3(player.position.x, player.transform.position.y, player.position.z);
-                this.transform.LookAt(targeting);
-
+                //  this.transform.LookAt(targeting);
+                vector = (targeting - this.transform.position);
             }
 
         }
