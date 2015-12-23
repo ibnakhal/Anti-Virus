@@ -130,11 +130,17 @@
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/A Sack Of Potatoes/Documents/GitHub/Anti-Virus/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
  <HintPath>C:/Users/A Sack Of Potatoes/Documents/GitHub/Anti-Virus/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
