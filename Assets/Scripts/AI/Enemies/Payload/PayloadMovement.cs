@@ -7,7 +7,7 @@ public class PayloadMovement : MonoBehaviour
     [SerializeField]
     private GameObject body = null;
     [SerializeField]
-    private Vector3 vector = new Vector3(0, 0, 0);
+    public Vector3 vector = new Vector3(0, 0, 0);
     [SerializeField]
     private Transform direction = null;
     [SerializeField]
@@ -61,7 +61,7 @@ public class PayloadMovement : MonoBehaviour
     [SerializeField]
     private bool triggered = false;
 
-
+    private Vector3 temp;
 
 
 
@@ -71,7 +71,10 @@ public class PayloadMovement : MonoBehaviour
         source.clip = moveClip;
         source.Play();
         vector = new Vector3(Random.Range(-360, 360), Random.Range(-360, 360), Random.Range(-360, 360));
-
+        temp = transform.rotation.eulerAngles;
+        temp.x = 0.0f;
+        temp.z = 0.0f;
+        temp.y = 0.0f;
     }
 
     // Update is called once per frame
@@ -124,7 +127,7 @@ public class PayloadMovement : MonoBehaviour
 
         Collider Other = collision.collider;
 
-        if (Other.tag == "wall")
+        if (Other.tag != "Player")
         {
             Debug.Log("WAll hit");
             //           Vector3 kiddy = Other.transform.FindChild("DIRECT").forward;
@@ -142,6 +145,8 @@ public class PayloadMovement : MonoBehaviour
 
     public void Move()
     {
+
+        this. transform.rotation = Quaternion.Euler(temp);
         this.transform.Translate(vector * Time.deltaTime * force);
     }
 
