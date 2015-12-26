@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Gameplay\Explosion.cs" />
      <Compile Include="Assets\Scripts\Gameplay\GunManager.cs" />
      <Compile Include="Assets\Scripts\Gameplay\GunPickup.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\LevelConstructor.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PickupBehavior.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ShootingGA.cs" />
@@ -99,6 +100,7 @@
      <Compile Include="Assets\Scripts\UI\GameStarter.cs" />
      <Compile Include="Assets\Scripts\UI\MenuLoader.cs" />
      <Compile Include="Assets\Scripts\UI\Pause.cs" />
+     <Compile Include="Assets\Scripts\UI\RoomTexter.cs" />
      <Compile Include="Assets\Scripts\UI\Wait.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
@@ -132,17 +134,11 @@
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/A Sack Of Potatoes/Documents/GitHub/Anti-Virus/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/A Sack Of Potatoes/Desktop/Engines/Engine Cache/Unity 5_2_2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
  <HintPath>C:/Users/A Sack Of Potatoes/Documents/GitHub/Anti-Virus/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
