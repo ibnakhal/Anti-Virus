@@ -68,7 +68,7 @@ public class B42BasicBehavior : MonoBehaviour {
             lerpValue = 0;
         }
 
-        if(health <= 0 && ! stageChange)
+        if(health <= 0 && !stageChange)
         {
             Destroy(destructible);
         }

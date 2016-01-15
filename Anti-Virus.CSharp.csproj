@@ -96,7 +96,10 @@
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_SceneMeshRender.cs" />
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\42.Zip\B42BasicBehavior.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\BFXMasterHealth.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\BFXStageChange.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\BusfixBehavior.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\ILYBFXHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\ILYBGFXBasicBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\CodeRed\CodeRedBasicBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\CodeRed\LaserRender.cs" />
