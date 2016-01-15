@@ -6,6 +6,8 @@ public class BFXMasterHealth : MonoBehaviour {
     [SerializeField]
     private GameObject[] pieces;
     [SerializeField]
+    private int masterHpMax;
+    [SerializeField]
     private int masterHealth;
     [SerializeField]
     private int temphealth;
@@ -25,7 +27,10 @@ public class BFXMasterHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+
+        healthRatio = masterHealth / masterHpMax;
+
         if(healthRatio<=ratioThreshold && !bugsOut)
         {
             bugsOut = true;

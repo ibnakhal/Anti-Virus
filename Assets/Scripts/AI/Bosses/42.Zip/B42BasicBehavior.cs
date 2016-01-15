@@ -15,6 +15,8 @@ public class B42BasicBehavior : MonoBehaviour {
     private GameObject nextStage;
     [SerializeField]
     private int health;
+    [SerializeField]
+    private bool finalStage;
 
     public float lerpValue;
     [SerializeField]
@@ -100,9 +102,17 @@ public class B42BasicBehavior : MonoBehaviour {
             Debug.Log(CountdownTime - x);
         }
 
-        stageChange = true;
-        StartCoroutine(StageChange());
-
+        if (finalStage)
+        {
+            Time.timeScale = 0;
+            yield return new WaitForSeconds(2);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health = 0;
+  
+        }
+        else {
+            stageChange = true;
+            StartCoroutine(StageChange());
+        }
         Debug.Log("TIME!");
     }
 
