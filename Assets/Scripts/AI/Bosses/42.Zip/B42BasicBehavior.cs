@@ -33,6 +33,8 @@ public class B42BasicBehavior : MonoBehaviour {
     private bool charging, pulsing;
 
     [SerializeField]
+    private GameObject player;
+    [SerializeField]
     private GameObject destructible;
 
     [SerializeField]
@@ -42,7 +44,7 @@ public class B42BasicBehavior : MonoBehaviour {
     void Start () {
 
         StartCoroutine(Countdown());
-
+        player = GameObject.FindGameObjectWithTag("Player");
 
 	}
 	
@@ -106,7 +108,7 @@ public class B42BasicBehavior : MonoBehaviour {
         {
             Time.timeScale = 0;
             yield return new WaitForSeconds(2);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health = 0;
+            player.GetComponent<PlayerController>().health = 0;
   
         }
         else {
@@ -154,7 +156,7 @@ public class B42BasicBehavior : MonoBehaviour {
             nextStage.SetActive(true);
             nextStage.gameObject.transform.localScale += new Vector3(0.021F, 0.021f, 0.021f);
         }
-
+        player.GetComponent<PlayerController>().health -= (int)(player.GetComponent<PlayerController>().maxHp * 0.2f);
 
     }
 
