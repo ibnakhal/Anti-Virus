@@ -12,8 +12,19 @@ public class BusfixBehavior : MonoBehaviour
     private GameObject bullet;
     [SerializeField]
     private float bulletForce;
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private int stage;
+    [SerializeField]
+    private bool Done;
+    public enum StateType
+    {
+        Fire,
+        Shield,
+        size,
+
+    }
+    // Use this for initialization
+    void Start () {
         StartCoroutine(Fire());
 	}
 	
@@ -30,7 +41,23 @@ public class BusfixBehavior : MonoBehaviour
 
     }
 
+    public IEnumerator Started()
+    {
+        while (isActiveAndEnabled)
+        {
+            yield return new WaitForSeconds(1);
+            if (Done)
+            {
+                int s = Random.Range(0, ((int)StateType.size - stage));
+                StateType state = (StateType)s;
+                string name = state.ToString();
+                print(name);
+                StartCoroutine(name);
+            }
 
+        }
+
+    }
 
 
     public IEnumerator Upkeep()

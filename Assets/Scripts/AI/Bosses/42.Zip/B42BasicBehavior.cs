@@ -3,10 +3,15 @@ using System.Collections;
 
 public class B42BasicBehavior : MonoBehaviour {
 
-
-
+    [Header ("Basic Stats")]
     [SerializeField]
     private int CountdownTime;
+    [SerializeField]
+    private int health;
+
+    [Header ("Stage Changing")]
+    [SerializeField]
+    private bool finalStage;
     [SerializeField]
     private float radius;
     [SerializeField]
@@ -14,10 +19,12 @@ public class B42BasicBehavior : MonoBehaviour {
     [SerializeField]
     private GameObject nextStage;
     [SerializeField]
-    private int health;
+    private GameObject player;
     [SerializeField]
-    private bool finalStage;
+    private bool stageChange;
 
+    
+    [Header ("Color Pulsing")]
     public float lerpValue;
     [SerializeField]
     public float timer;
@@ -30,15 +37,15 @@ public class B42BasicBehavior : MonoBehaviour {
     [SerializeField]
     private Renderer rend;
     [SerializeField]
-    private bool charging, pulsing;
-
+    private bool charging;
     [SerializeField]
-    private GameObject player;
+    private bool pulsing;
+
+
     [SerializeField]
     private GameObject destructible;
 
-    [SerializeField]
-    private bool stageChange;
+
 
     // Use this for initialization
     void Start () {

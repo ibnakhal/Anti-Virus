@@ -55,12 +55,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -106,8 +100,6 @@
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxemBasicBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\OnEnter.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\Stage1.cs" />
-    <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\Stage2.cs" />
-    <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\Stage3.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\BasicEnemyHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoAI.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoInfection.cs" />
