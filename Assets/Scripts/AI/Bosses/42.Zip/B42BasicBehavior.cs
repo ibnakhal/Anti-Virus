@@ -157,6 +157,7 @@ public class B42BasicBehavior : MonoBehaviour {
             nextStage.gameObject.transform.localScale += new Vector3(0.021F, 0.021f, 0.021f);
         }
         player.GetComponent<PlayerController>().health -= (int)(player.GetComponent<PlayerController>().maxHp * 0.2f);
+        nextStage.GetComponent<B42BasicBehavior>().health = health;
 
     }
 

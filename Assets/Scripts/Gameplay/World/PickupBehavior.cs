@@ -22,6 +22,7 @@ public class PickupBehavior : MonoBehaviour
         max,
         trojanHp,
         malware,
+        adware,
 
     }
     [SerializeField]
@@ -61,7 +62,10 @@ public class PickupBehavior : MonoBehaviour
                 case Type.malware:
                     Debug.Log("Boombooom");
                     pC.Maled = true;
-                    StartCoroutine(pC.Mal(modifier));
+                    pC.Mal();
+                    break;
+                case Type.adware:
+
                     break;
 
             }

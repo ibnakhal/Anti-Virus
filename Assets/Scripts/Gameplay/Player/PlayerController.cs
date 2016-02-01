@@ -172,20 +172,10 @@ public class PlayerController : MonoBehaviour
         health -= damage;
     }
 
-    public IEnumerator Mal(float time)
+    public void Mal()
     {
 
-        Debug.Log("Time modifier recieved: "+time);
-        while (Maled)
-        {
 
-            yield return new WaitForSeconds(time);
-
-            Debug.Log("Infected Loop");
-
-            health -= 1;
-        }
-        Debug.Log("It Ended");
 
     }
 
