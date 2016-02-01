@@ -2,12 +2,30 @@
 using System.Collections;
 using UnityEngine.UI;
 public class Adware : MonoBehaviour {
+
     public bool triggered;
+    private PlayerController pC;
+
+    [Header("RNG")]
+    [SerializeField]
+    int x;
+    [SerializeField]
+    int y;
+    [SerializeField]
+    int z;
+
+    [Header ("Status Traits")]
     [SerializeField]
     private GameObject[] ads;
     [SerializeField]
+    private string alert;
+    [SerializeField]
     private int timeLimit;
-    private PlayerController pC;
+
+    
+
+
+
     // Use this for initialization
     void Start () {
         GameObject p = GameObject.FindGameObjectWithTag("Player");
@@ -18,20 +36,27 @@ public class Adware : MonoBehaviour {
 	void Update () {
 	
 	}
+    public void Infect()
+    {
+        triggered = true;
+        StartCoroutine(Adwared());
+        pC.Warner(alert);
+    }
 
     public IEnumerator Adwared()
     {
         while(triggered)
         {
-            int x = Random.Range(0, ads.Length);
+            x = Random.Range(0, ads.Length);
             ads[x].SetActive(true);
-            int y = Random.Range(0, timeLimit);
+            y = Random.Range(0, timeLimit);
             yield return new WaitForSeconds(y);
             ads[x].SetActive(false);
-            int z = Random.Range(0, timeLimit);
+            z = Random.Range(0, timeLimit);
             yield return new WaitForSeconds(z);
 
         }
+        ads[x].SetActive(false);
     }
 
 

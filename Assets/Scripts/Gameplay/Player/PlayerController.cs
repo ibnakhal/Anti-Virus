@@ -23,11 +23,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public int health, maxHp, warningShowLimit,gameOver, cryoHit, cryoMax;
     [SerializeField]
-    public bool trojand = false, trojan1 = false, Maled = false;
+    public bool trojand = false, trojan1 = false;
     [SerializeField]
     private Text txt, hTxt;
     [SerializeField]
     private GameObject spawn;
+    [SerializeField]
+    private GameObject diseases;
     /// <summary>
     /// On level start retrieves reference to the CharacterMover to ensure communication between the two scripts
     /// </summary>
@@ -129,7 +131,7 @@ public class PlayerController : MonoBehaviour
     public void HealUp(int hp)
     {
         health = health + hp;
-        trojand = false;
+        DiseaseClean();
         StartCoroutine(Warner("New Program Patch"));
     }
 
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         maxHp = maxHp + max;
         health += maxHp;
-        trojand = false;
+        DiseaseClean();
         StartCoroutine(Warner("Security Update Installed"));
     }
 
@@ -174,8 +176,19 @@ public class PlayerController : MonoBehaviour
 
     public void Mal()
     {
+        diseases.GetComponent<Malware>().Infect();
+    }
+    public void Ad()
+    {
+        diseases.GetComponent<Adware>().Infect();
 
+    }
 
+    public void DiseaseClean()
+    {
+        trojand = false;
+        diseases.GetComponent<Malware>().Maled = false;
+        diseases.GetComponent<Adware>().triggered = false;
 
     }
 

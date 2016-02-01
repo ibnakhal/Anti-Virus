@@ -51,7 +51,6 @@ public class PickupBehavior : MonoBehaviour
 
                 case Type.max:
                     pC.MaxUp(modifier);
-                   // pC.HealUp(modifier);
                     break;
                
                 
@@ -61,11 +60,10 @@ public class PickupBehavior : MonoBehaviour
                     break;
                 case Type.malware:
                     Debug.Log("Boombooom");
-                    pC.Maled = true;
                     pC.Mal();
                     break;
                 case Type.adware:
-
+                    pC.Ad();
                     break;
 
             }
