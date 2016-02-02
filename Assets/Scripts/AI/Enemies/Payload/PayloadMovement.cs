@@ -6,6 +6,7 @@ public class PayloadMovement : MonoBehaviour
 
     [SerializeField]
     private GameObject body = null;
+    [Header ("Movement")]
     [SerializeField]
     public Vector3 vector = new Vector3(0, 0, 0);
     [SerializeField]

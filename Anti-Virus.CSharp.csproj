@@ -98,7 +98,6 @@
     <Compile Include="Assets\Scripts\AI\Bosses\CodeRed\LaserRender.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxBulletBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxemBasicBehavior.cs" />
-    <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\OnEnter.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\Stage1.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\BasicEnemyHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoAI.cs" />
@@ -115,6 +114,7 @@
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\Death.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\SegmentFollow.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\wAI.cs" />
+    <Compile Include="Assets\Scripts\AI\OnEnter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\Beamscript.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\BulletBehavior.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\CameraControl.cs" />
