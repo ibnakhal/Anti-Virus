@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             {
                 Trojan();
 
-                StartCoroutine(Warner("Trojan Infection Detected"));
+                StartCoroutine(Warner("TROJAN DETECTED"));
                 trojan1 = true;
             }
         }
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
     {
         health = health + hp;
         DiseaseClean();
-        StartCoroutine(Warner("New Program Patch"));
+        StartCoroutine(Warner("PROGRAM UPDATED"));
     }
 
     public void MaxUp(int max)
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
         maxHp = maxHp + max;
         health += maxHp;
         DiseaseClean();
-        StartCoroutine(Warner("Security Update Installed"));
+        StartCoroutine(Warner("SECURITY UPDATE INSTALLED"));
     }
 
 
