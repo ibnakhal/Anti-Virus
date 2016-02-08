@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Bosses/Nyxem.unity
+- path: Assets/Scenes/Womb.unity
   isLoaded: 1
   isActive: 1
