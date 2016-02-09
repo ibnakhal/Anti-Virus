@@ -139,6 +139,8 @@
     <Compile Include="Assets\Scripts\Gameplay\World\LevelConstructor.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\PickupBehavior.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\RoomController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\World\TeleportControl.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\World\TeleporterRoom.cs" />
     <Compile Include="Assets\Scripts\UI\AFKCloseApp.cs" />
     <Compile Include="Assets\Scripts\UI\Button.cs" />
     <Compile Include="Assets\Scripts\UI\CursorSetter.cs" />

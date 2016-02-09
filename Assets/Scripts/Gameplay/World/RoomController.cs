@@ -8,7 +8,8 @@ public class RoomController : MonoBehaviour {
     private GameObject[] contents;
     [SerializeField]
     private GameObject reward;
-
+    [SerializeField]
+    private GameObject[] doors;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +21,10 @@ public class RoomController : MonoBehaviour {
         if (contents == null)
         {
             reward.SetActive(true);
+            for (int x = 0; x < doors.Length; x++)
+            {
+                doors[x].SetActive(true);
+            }
         }
 
 
@@ -36,6 +41,10 @@ public class RoomController : MonoBehaviour {
             for (int x = 0; x< contents.Length; x++)
             {
                 contents[x].SetActive(true);
+            }
+            for(int x = 0; x< doors.Length; x++)
+            {
+                doors[x].SetActive(false);
             }
         }
     }

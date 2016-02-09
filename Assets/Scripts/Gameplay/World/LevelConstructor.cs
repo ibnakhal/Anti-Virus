@@ -20,7 +20,8 @@ public class LevelConstructor : MonoBehaviour {
             int y = Random.Range(0, LevelSection.Length);
             Instantiate(LevelSection[y], LevelPoints[x].transform.position, Quaternion.identity);
         }
-
+        TeleportControl tele = this.gameObject.GetComponent<TeleportControl>();
+        tele.KickStarter();
 
 	}
 	
