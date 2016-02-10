@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Womb.unity
+- path: Assets/Scenes/RoomTester.unity
   isLoaded: 1
   isActive: 1
