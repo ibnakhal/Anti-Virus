@@ -3,6 +3,7 @@ using UnityEditor;
 using ProBuilder2.Common;
 using ProBuilder2.EditorCommon;
 using System.Collections;
+using System.Linq;
 
 #if PB_DEBUG
 using Parabox.Debug;
@@ -35,9 +36,11 @@ public class pb_Preferences
 	static bool pbDisableAutoUV2Generation = false;
 	static bool pbShowSceneInfo = false;
 	static bool pbEnableBackfaceSelection = false;
+	static bool pbUniqueModeShortcuts = false;
 	
 	static ColliderType defaultColliderType = ColliderType.BoxCollider;
 	static SceneToolbarLocation pbToolbarLocation = SceneToolbarLocation.UpperCenter;
+	static EntityType pbDefaultEntity = EntityType.Detail;
 
 	static float pbUVGridSnapValue;
 	static float pbVertexHandleSize;
@@ -72,13 +75,18 @@ public class pb_Preferences
 		defaultOpenInDockableWindow = EditorGUILayout.Toggle("Open in Dockable Window", defaultOpenInDockableWindow);
 
 		GUILayout.BeginHorizontal();
+			EditorGUILayout.PrefixLabel("Default Entity");
+			pbDefaultEntity = ((EntityType)EditorGUILayout.EnumPopup( (EntityType)pbDefaultEntity ));
+		GUILayout.EndHorizontal();
+
+		GUILayout.BeginHorizontal();
 			EditorGUILayout.PrefixLabel("Default Collider");
 			defaultColliderType = ((ColliderType)EditorGUILayout.EnumPopup( (ColliderType)defaultColliderType ));
 		GUILayout.EndHorizontal();
 
 		if((ColliderType)defaultColliderType == ColliderType.MeshCollider)
 			pbForceConvex = EditorGUILayout.Toggle("Force Convex Mesh Collider", pbForceConvex);
-			
+
 		pbShowEditorNotifications = EditorGUILayout.Toggle("Show Editor Notifications", pbShowEditorNotifications);
 		pbDragCheckLimit = EditorGUILayout.Toggle(new GUIContent("Limit Drag Check to Selection", "If true, when drag selecting faces, only currently selected pb-Objects will be tested for matching faces.  If false, all pb_Objects in the scene will be checked.  The latter may be slower in large scenes."), pbDragCheckLimit);
 		pbPBOSelectionOnly = EditorGUILayout.Toggle(new GUIContent("Only PBO are Selectable", "If true, you will not be able to select non probuilder objects in Geometry and Texture mode"), pbPBOSelectionOnly);
@@ -88,6 +96,8 @@ public class pb_Preferences
 		GUI.enabled = pbShowSceneToolbar;
 		pbToolbarLocation = (SceneToolbarLocation) EditorGUILayout.EnumPopup("Toolbar Location", pbToolbarLocation);
 		GUI.enabled = true;
+
+		pbUniqueModeShortcuts = EditorGUILayout.Toggle(new GUIContent("Unique Mode Shortcuts", "When off, the G key toggles between Object and Element modes and H enumerates the element modes.  If on, G, H, J, and K are shortcuts to Object, Vertex, Edge, and Face modes respectively."), pbUniqueModeShortcuts);
 
 		GUILayout.Space(4);
 		
@@ -168,6 +178,8 @@ public class pb_Preferences
 			EditorPrefs.DeleteKey(pb_Constant.pbShowSceneInfo);
 			EditorPrefs.DeleteKey(pb_Constant.pbEnableBackfaceSelection);
 			EditorPrefs.DeleteKey(pb_Constant.pbToolbarLocation);
+			EditorPrefs.DeleteKey(pb_Constant.pbDefaultEntity);
+			EditorPrefs.DeleteKey(pb_Constant.pbUniqueModeShortcuts);
 		}
 
 		LoadPrefs();
@@ -268,6 +280,7 @@ public class pb_Preferences
 		pbUVEditorFloating 					= pb_Preferences_Internal.GetBool(pb_Constant.pbUVEditorFloating);
 		pbShowSceneToolbar 					= pb_Preferences_Internal.GetBool(pb_Constant.pbShowSceneToolbar);
 		pbShowEditorNotifications 			= pb_Preferences_Internal.GetBool(pb_Constant.pbShowEditorNotifications);
+		pbUniqueModeShortcuts 				= pb_Preferences_Internal.GetBool(pb_Constant.pbUniqueModeShortcuts);
 
 		pbDefaultFaceColor 					= pb_Preferences_Internal.GetColor( pb_Constant.pbDefaultFaceColor );
 		pbDefaultEdgeColor 					= pb_Preferences_Internal.GetColor( pb_Constant.pbDefaultEdgeColor );
@@ -279,12 +292,11 @@ public class pb_Preferences
 
 		defaultColliderType 				= pb_Preferences_Internal.GetEnum<ColliderType>(pb_Constant.pbDefaultCollider);
 		pbToolbarLocation	 				= pb_Preferences_Internal.GetEnum<SceneToolbarLocation>(pb_Constant.pbToolbarLocation);
+		pbDefaultEntity	 					= pb_Preferences_Internal.GetEnum<EntityType>(pb_Constant.pbDefaultEntity);
 
 		pbDefaultMaterial 					= pb_Preferences_Internal.GetMaterial(pb_Constant.pbDefaultMaterial);
 
-		defaultShortcuts 					= EditorPrefs.HasKey(pb_Constant.pbDefaultShortcuts) ? 
-			pb_Shortcut.ParseShortcuts(EditorPrefs.GetString(pb_Constant.pbDefaultShortcuts)) : 
-			pb_Shortcut.DefaultShortcuts();
+		defaultShortcuts 					= pb_Preferences_Internal.GetShortcuts().ToArray();
 
 	}
 
@@ -296,6 +308,7 @@ public class pb_Preferences
 		EditorPrefs.SetBool  	(pb_Constant.pbEnableBackfaceSelection, pbEnableBackfaceSelection);
 
 		EditorPrefs.SetInt		(pb_Constant.pbToolbarLocation, (int)pbToolbarLocation);
+		EditorPrefs.SetInt		(pb_Constant.pbDefaultEntity, (int)pbDefaultEntity);
 
 		EditorPrefs.SetString	(pb_Constant.pbDefaultFaceColor, pbDefaultFaceColor.ToString());
 		EditorPrefs.SetString	(pb_Constant.pbDefaultEdgeColor, pbDefaultEdgeColor.ToString());
@@ -305,7 +318,7 @@ public class pb_Preferences
 		EditorPrefs.SetString	(pb_Constant.pbDefaultShortcuts, pb_Shortcut.ShortcutsToString(defaultShortcuts));
 
 		string matPath = pbDefaultMaterial != null ? AssetDatabase.GetAssetPath(pbDefaultMaterial) : "";
-		EditorPrefs.SetString	(pb_Constant.pbDefaultMaterial, matPath == "" ? pbDefaultMaterial.name : matPath);
+		EditorPrefs.SetString	(pb_Constant.pbDefaultMaterial, matPath);
 		
 		EditorPrefs.SetInt 		(pb_Constant.pbDefaultCollider, (int)defaultColliderType);	
 		EditorPrefs.SetBool  	(pb_Constant.pbShowEditorNotifications, pbShowEditorNotifications);
@@ -319,6 +332,7 @@ public class pb_Preferences
 		EditorPrefs.SetBool		(pb_Constant.pbCloseShapeWindow, pbCloseShapeWindow);
 		EditorPrefs.SetBool		(pb_Constant.pbUVEditorFloating, pbUVEditorFloating);
 		EditorPrefs.SetBool		(pb_Constant.pbShowSceneToolbar, pbShowSceneToolbar);
+		EditorPrefs.SetBool		(pb_Constant.pbUniqueModeShortcuts, pbUniqueModeShortcuts);
 		
 		EditorPrefs.SetFloat	(pb_Constant.pbVertexHandleSize, pbVertexHandleSize);
 		EditorPrefs.SetFloat 	(pb_Constant.pbUVGridSnapValue, pbUVGridSnapValue);

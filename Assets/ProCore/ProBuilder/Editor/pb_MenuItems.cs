@@ -16,7 +16,7 @@ public class pb_MenuItems : EditorWindow
 	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/About", false, 0)]
 	public static void MenuInitAbout()
 	{
-		pb_AboutWindow.Init("Assets/ProCore/" + pb_Constant.PRODUCT_NAME + "/About/pc_AboutEntry_ProBuilder.txt", true);
+		pb_AboutWindow.Init("Assets/ProCore/ProBuilder/About/pc_AboutEntry_ProBuilder.txt", true);
 	}
 
 	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/Documentation", false, 0)]
@@ -54,49 +54,6 @@ public class pb_MenuItems : EditorWindow
 #endregion
 
 #region ProBuilder/Edit
-
-	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/Editor/Toggle Edit Level", false, pb_Constant.MENU_EDITOR + 0)]
-	public static void ToggleEditLevel()
-	{
-		editor.ToggleEditLevel();
-		switch(editor.editLevel)
-		{
-			case EditLevel.Top:
-				pb_Editor_Utility.ShowNotification("Top Level Editing");
-				break;
-
-			case EditLevel.Geometry:
-				pb_Editor_Utility.ShowNotification("Geometry Editing");
-				break;
-		}
-	}
-
-	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/Editor/Toggle Selection Mode", false, pb_Constant.MENU_EDITOR + 1)]
-	public static void ToggleSelectMode()
-	{
-		editor.ToggleSelectionMode();
-		switch(editor.selectionMode)
-		{
-			case SelectMode.Face:
-				pb_Editor_Utility.ShowNotification("Editing Faces");
-				break;
-
-			case SelectMode.Vertex:
-				pb_Editor_Utility.ShowNotification("Editing Vertices");
-				break;
-
-			case SelectMode.Edge:
-				pb_Editor_Utility.ShowNotification("Editing Edges\n(Beta!)");
-				break;
-		}
-	}
-
-	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/Editor/Toggle Handle Coordinates", false, pb_Constant.MENU_EDITOR + 2)]
-	public static void ToggleHandleAlignment()
-	{
-		editor.ToggleHandleAlignment();		
-		pb_Editor_Utility.ShowNotification("Handle Alignment: " + ((HandleAlignment)editor.handleAlignment).ToString());
-	}
 
 	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/Editor/Lightmap Settings Window", false, pb_Constant.MENU_EDITOR + 3)]
 	public static void LightmapWindowInit()

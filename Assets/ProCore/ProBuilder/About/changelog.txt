@@ -1,3 +1,102 @@
+-- ProBuilder 2.4.11f0 (r4081)
+
+# Bug Fixes
+	- Fix regression in 2.4.10f2 that broke assigning materials in ProBuilder Basic.
+
+# API
+	- Add `onEditLevelChanged` delegate to pb_Editor to notify other classes of edit level changes (Polybrush compatibility).
+
+-- ProBuilder 2.4.10f2 (r4027)
+
+# Features
+	- Shape and Material windows are now dockable (context click in window and select Window/Set {Floating, Dockable}).
+	- Add "Snap to Face" shortcut when dragging the move tool (hold 'C' while dragging to snap tool to the nearest face).
+	- New ShaderForge compatible Standard Vertex Color shader on ProBuilder default material.
+
+# Bug Fixes
+	- Unity 5.4 compatibility.
+	- Workaround for Unity crash "Check DisallowAllocation Error"
+	- Fix most cases of meshes going completely black when modifying them in any way.
+	- Fix NullRef error when scaling a single selected edge.
+
+# Changes
+	- Remove various `Get{Vertices, UVs, Triangles}` functions from `pb_Object`.  Use `pbUtil.ValuesWithIndices` directly instead.
+	- Remove Instantiation API Example (there's nothing special about instantiating ProBuilder meshes anymore).
+
+-- ProBuilder 2.4.9f1 (r3978)
+
+# Features
+
+	- New "Flip Edge" tool swaps the direction of a connecting edge in a quad.
+
+# Bug Fixes
+	- Fix bug where Trigger or Collider entities could remain visible in play mode when using source.
+	- Fix slowdowns when inserting edge loops due to undo.
+	- Fix missing namespace errors in Unity 5.3.
+	- Increase the resolution with which vertex positions are compared to avoid incorrectly merging distinct vertices (often causing trouble when modeling at very small dimensions).
+
+-- ProBuilder 2.4.8f1 (r3764)
+
+# Features
+	- Enable Set Pivot, Delete, and Vertex Painter in ProBuilder Basic.
+	- New Standard Shader with vertex color support (thanks to Unity Forum user @defaxer).
+
+# Bug Fixes
+	- Add tooltips for every action in the ProBuilder toolbar.
+	- Fix consistent horizontal scrollbar showing in ProBuilder window.
+	- Smooth edges of curved  stair sides, and align step UVs to match rotation.
+	- Use white text color in Dimensions Overlay when Unity Personal skin is used.
+	- Ensure DLLs retain GUID between releases, enabling simpler upgrades.
+	- Fix poor UV editor precision when working with small distances.
+	- Fix ~10px vertical offset image when rendering UV template in Unity 5.
+	- Fix slightly offset image when rendering UV template from docked UV Editor window.
+
+# Changes
+	- Increase minimum allowed zoom in UV editor.
+	- Make warning shown when connecting edges or vertices fails a bit more descriptive.
+	- Don't show tangents and bitangents when Show Normals is enabled in the smoothing editor.
+	- Prototype becomes ProBuilder Basic.
+
+-- ProBuilder 2.4.7f0 (r3664)
+
+# Changes
+	- New upgrade procedure skips complicated Upgrade Kit in favor of a slightly more manual but more reliable approach.  See FAQ or ProBuilder Documentation for more information.
+
+# Bug Fixes
+	- Fix possible null reference error when working with prefabs that have been duplicated.
+	- Additional error checking when stripping pb_Objects from scene added.
+	- When ProBuilder-izing objects, ask user whether or not to traverse children.
+
+-- ProBuilder 2.4.6f0 (r3616)
+
+# Features
+	- Add preference to set default Entity type.
+	- Add preference to set dedicated keyboard shortcuts for entering Object, Face, Vertex, and Edge mode.
+	- New Curved Stair generator, and stairs now produce manifold geometry.
+	- Add "Batch Upgrade" menu items to Upgrade Kit, allowing users to run one action for an entire project.
+	- New GUI slider allows un-clamped input to the float field in Shape Tool.
+
+# Bug Fixes
+	- Alt + E shortcut now works with only 2 vertices selected.
+	- Fix bug where colliders would be incorrect when instantiating trigger entities.
+	- Fix some cases where "Connect" would result in incorrect geometry.
+	- Fix UV editor not recognizing shortcuts sent from scene view.
+	- Fix occasional "Non-finite value in mesh vertices" error when extruding.
+	- Account for inconsistently sized vertex color arrays when ProBuilder-izing meshes.
+	- Fix null reference errors when Shape Creation Tool is open with preview enabled and a script reload takes place.
+	- Fix null reference sometimes caused by a Mirror action.
+	- Fix bug where merging objects would always add a MeshCollider, even if one already exists.
+	- Fix mesh bounds not refreshing when adjusting vertices with Quick Offset tool.
+	- Fix mis-calibrated drag selection wwhen first entering element mode after moving an object.
+	- Fix issue where duplicating GameObjects with child pb_Objects would leave references to original meshes intact, resulting in odd behavior when deleting objects.
+	- Fix bug where prefabs would not "Apply" changes to all children equally.
+	- Improve performance when editing scenes with many ProBuilder object prefabs.
+
+-- ProBuilder 2.4.5p0 (r3531)
+
+# Bug Fixes
+	- Fix bugs in Copy UV Settings and Quick Apply Material shortcuts.
+
 -- ProBuilder 2.4.5f1 (r3519)
 
 # Features

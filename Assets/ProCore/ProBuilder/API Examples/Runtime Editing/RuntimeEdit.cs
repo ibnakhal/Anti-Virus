@@ -157,7 +157,7 @@ namespace ProBuilder2.Examples
 							return;
 						}
 
-						Vector3 localNormal = pb_Math.Normal(currentSelection.pb.GetVertices(currentSelection.face.distinctIndices));
+						Vector3 localNormal = pb_Math.Normal( pbUtil.ValuesWithIndices(currentSelection.pb.vertices, currentSelection.face.distinctIndices) );// currentSelection.pb.GetVertices(currentSelection.face.distinctIndices));
 						
 						if(Input.GetKey(KeyCode.LeftShift))
 							currentSelection.pb.TranslateVertices( currentSelection.face.distinctIndices, localNormal.normalized * -.5f );
@@ -223,7 +223,6 @@ namespace ProBuilder2.Examples
 				Destroy(preview.gameObject);
 
 			preview = pb_Object.CreateInstanceWithVerticesFaces(verts, new pb_Face[1]{face});
-			preview.SetName("Preview");
 			preview.SetFaceMaterial(preview.faces, previewMaterial);
 			preview.ToMesh();
 			preview.Refresh();

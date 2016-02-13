@@ -1,21 +1,7 @@
 fileFormatVersion: 2
-guid: 2ad4e7ac0fd81b64596c78e0a5237551
-labels:
-- 3d
-- model
-- mesh
-- uv
-- build
-- geometry
-- modeling
-- texture
-- vertex
-- face
-- edge
-- subdivide
-- boolean
-timeCreated: 1437060773
-licenseType: Pro
+guid: 4df21bd079886d84699ca7be1316c7a7
+timeCreated: 1455205671
+licenseType: Store
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -29,10 +15,6 @@ PluginImporter:
       enabled: 1
       settings:
         DefaultValueInitialized: true
-    WindowsStoreApps:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
   userData: 
   assetBundleName: 
   assetBundleVariant: 

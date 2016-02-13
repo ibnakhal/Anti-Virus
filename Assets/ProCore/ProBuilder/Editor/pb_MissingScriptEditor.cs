@@ -178,7 +178,7 @@ namespace ProBuilder2.EditorCommon
 
 			EditorUtility.DisplayDialog("Success", "Successfully repaired " + total + " ProBuilder objects.", "Okay");
 
-			if(!EditorApplication.SaveCurrentSceneIfUserWantsTo())
+			if(!pb_EditorSceneUtility.SaveCurrentSceneIfUserWantsTo())
 				Debug.LogWarning("Repaired script references will be lost on exit if this scene is not saved!");
 
 			doFix = false;
@@ -371,7 +371,7 @@ namespace ProBuilder2.EditorCommon
 								).ToArray();
 
 							broken = broken.Distinct().ToArray();
-							pb_Menu_Commands.ProBuilderize(System.Array.ConvertAll(broken, x => (GameObject)x).ToArray(), true);
+							pb_Menu_Commands.ProBuilderize(System.Array.ConvertAll(broken, x => (GameObject)x).Select(x => x.GetComponent<MeshFilter>()), true);
 						}
 						
 						// Always delete components
