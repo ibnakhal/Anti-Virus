@@ -8,8 +8,6 @@ public class SpinnerMovement : MonoBehaviour {
     [SerializeField]
     private float mSpeed;
     [SerializeField]
-    private bool infiniteRun = true;
-    [SerializeField]
     Transform player;
     [SerializeField]
     private float turnSpeedCalibration;
@@ -18,7 +16,8 @@ public class SpinnerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //StartCoroutine(Looking());
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
@@ -35,7 +34,7 @@ public class SpinnerMovement : MonoBehaviour {
 
     public IEnumerator Looking()
     {
-        while (infiniteRun == true)
+        while (isActiveAndEnabled)
         {
             yield return new WaitForSeconds(turnSpeedCalibration);
             for (int x = 0; x < turnCounter; x++)

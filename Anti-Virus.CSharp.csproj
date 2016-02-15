@@ -104,6 +104,8 @@
     <Compile Include="Assets\Scripts\AI\Enemies\BasicEnemyHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoAI.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoInfection.cs" />
+    <Compile Include="Assets\Scripts\AI\Enemies\Drone\SwingForward.cs" />
+    <Compile Include="Assets\Scripts\AI\Enemies\Drone\SwingMovement.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Egg\Egg.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Egg\EggSpawn.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\EnemyHealthScript.cs" />
