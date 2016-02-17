@@ -22,8 +22,6 @@ public class SegmentFollow : MonoBehaviour {
     [SerializeField]
     wAI  wormAI;
     [SerializeField]
-    private int foreverever;
-    [SerializeField]
     private Material mat;
 
 
@@ -83,7 +81,7 @@ public class SegmentFollow : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator Follower()
     {
-        while (foreverever < (foreverever +1))
+        while (isActiveAndEnabled)
         {
             yield return new WaitForSeconds(lagTime);
 
