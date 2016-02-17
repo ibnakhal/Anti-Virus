@@ -101,6 +101,9 @@
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxBulletBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxemBasicBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\Stage1.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\Storm\StormAI.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\Storm\StormSegment.cs" />
+    <Compile Include="Assets\Scripts\AI\Enemies\AWorm\AWormMovement.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\BasicEnemyHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoAI.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Cryo\CryoInfection.cs" />

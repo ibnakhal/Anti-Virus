@@ -2,17 +2,29 @@
 using System.Collections;
 
 public class SwingForward : MonoBehaviour {
+    [SerializeField]
+    private Malware mal;
+    [SerializeField]
+    private GameObject death;
 
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private Transform player;
     public void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     public void Update()
     {
-        transform.LookAt(player.position);
+
+    }
+
+    public void OnCollisionEnter(Collision coolide)
+    {
+        Collider other = coolide.collider;
+        if(other.tag == "Player")
+        {
+            Debug.Log("Woof");
+            mal = other.GetComponentInChildren<Malware>();
+            mal.Infect();
+            Instantiate(death, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
     }
 }

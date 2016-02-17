@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/RoomTester.unity
+- path: Assets/Scenes/Bosses/Storm.unity
   isLoaded: 1
   isActive: 1

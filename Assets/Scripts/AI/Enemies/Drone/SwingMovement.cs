@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SwingMovement : MonoBehaviour {
     [SerializeField]
-    private Vector3 left;
+    private float speed;
     [SerializeField]
     private float degreeModifier;
     [SerializeField]
@@ -22,12 +22,17 @@ public class SwingMovement : MonoBehaviour {
         float degree = degreeModifier * (Mathf.Sin(Time.timeSinceLevelLoad * someConstant));
        // degree = 0;
 
-        Quaternion forwardRotation;
+     /*   Quaternion forwardRotation;
         
         forwardRotation = Quaternion.LookRotation(player.position);
 
         transform.rotation = forwardRotation * Quaternion.Euler(0.0f, degree, 0.0f);
-        
+       */ transform.LookAt(player.position);
 
-        }
+        transform.Rotate(0, degree, 0);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+       // Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+      //  rb.velocity = transform.forward * speed;
+    }
 }
