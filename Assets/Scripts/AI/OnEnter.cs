@@ -6,7 +6,15 @@ public class OnEnter : MonoBehaviour {
     [SerializeField]
     private int damage;
 
-
+    public void OnCollisionEnter(Collision collided)
+    {
+        Debug.Log(collided.collider.name);
+        Collider Other = collided.collider;
+        if (Other.tag == "Player")
+        {
+            Other.GetComponent<PlayerController>().Ouch(damage);
+        }
+    }
     public void OnTriggerEnter (Collider Other)
     {
 
@@ -15,4 +23,6 @@ public class OnEnter : MonoBehaviour {
             Other.GetComponent<PlayerController>().Ouch(damage);
         }
     }
+
+  
 }

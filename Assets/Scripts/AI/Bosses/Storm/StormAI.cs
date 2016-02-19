@@ -9,13 +9,13 @@ public class StormAI : MonoBehaviour {
     [SerializeField]
     private Transform direction;
     [SerializeField]
-    public float force;
+    public float force = 15;
     [SerializeField]
     private int dmg;
     [SerializeField]
     private int counter;
     [SerializeField]
-    private int threshold;
+    private int threshold = 3;
     [SerializeField]
     private Transform player;
 
