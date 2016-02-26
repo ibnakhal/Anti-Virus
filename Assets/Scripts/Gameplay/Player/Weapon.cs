@@ -20,7 +20,7 @@ public class Weapon
         Raycast,
     }
 
-
+    public LayerMask shootingMask;
 
 
     //TODO*******************
@@ -77,7 +77,17 @@ public class Weapon
 
     public void Fire()
     {
-        Vector3 vectora = (target.position - gunModel.transform.position);
+
+            Vector2 ScreenCenter = new Vector2(Screen.height/2, Screen.width/2);
+
+        //Ray rayB = Camera.main.ScreenPointToRay(ScreenCenter);
+
+        RaycastHit hitty;
+        Transform camsform = Camera.main.transform;
+        Ray rayB = new Ray(camsform.position, camsform.forward);
+        Physics.Raycast(rayB, out hitty, 3000.0f, shootingMask);
+
+        Vector3 vectora = (hitty.point - barrel[0].transform.position).normalized;
         Debug.Log("FIRE!");
         switch (gunType)
         {
@@ -88,7 +98,7 @@ public class Weapon
                     Debug.Log(clone);
                     clone.GetComponent<BulletBehavior>().damage = baseDamage;
 
-                    clone.GetComponent<Rigidbody>().velocity = (vectora * bulletSpeed * Time.deltaTime);
+                    clone.GetComponent<Rigidbody>().velocity = (vectora * bulletSpeed);
                     ammo--;
                 }
                 cooldown = true;

@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         tSet = turnSpeed;
         txt.enabled = true;
         txt.text = "";
-        StartCoroutine(Spawned(spawnTimer));
+       // StartCoroutine(Spawned(spawnTimer));
 
     }
 
