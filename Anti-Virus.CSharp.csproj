@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\AI\Enemies\Egg\Egg.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Egg\EggSpawn.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\EnemyHealthScript.cs" />
+    <Compile Include="Assets\Scripts\AI\Enemies\Hive\HiveBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Payload\PayloadMovement.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Payload\SensorKamikazee.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Spinner\SpinnerMovement.cs" />
