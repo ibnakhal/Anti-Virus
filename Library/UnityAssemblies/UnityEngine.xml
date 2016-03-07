@@ -33521,6 +33521,11 @@ Note that IgnoreLayerCollision will reset the trigger state of affected collider
         <para>Indicates whether cached data is available for this ProceduralMaterial's textures (only relevant for Cache and DoNothingAndCache loading behaviors).</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.ProceduralMaterial.isFrozen">
+      <summary>
+        <para>Returns true if FreezeAndReleaseSourceData was called on this ProceduralMaterial.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.ProceduralMaterial.isLoadTimeGenerated">
       <summary>
         <para>Should the ProceduralMaterial be generated at load time?</para>
@@ -33566,6 +33571,11 @@ Note that IgnoreLayerCollision will reset the trigger state of affected collider
     <member name="M:UnityEngine.ProceduralMaterial.ClearCache">
       <summary>
         <para>Clear the Procedural cache.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.ProceduralMaterial.FreezeAndReleaseSourceData">
+      <summary>
+        <para>Render a ProceduralMaterial immutable and release the underlying data to decrease the memory footprint.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.ProceduralMaterial.GetGeneratedTexture(System.String)">

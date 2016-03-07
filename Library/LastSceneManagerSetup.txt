@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Bosses/42.Zip.unity
+- path: Assets/Scenes/Bosses/Storm.unity
   isLoaded: 1
   isActive: 1

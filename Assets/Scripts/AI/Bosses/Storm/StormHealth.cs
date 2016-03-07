@@ -37,11 +37,9 @@ public class StormHealth : MonoBehaviour
                 wormRearNeighbor.GetComponent<StormSegment>().front = null;
             }
 
-            truepercent = Random.Range(0, 101);
-            if (truepercent <= dropPercent)
+for (int x = 0; x<5;x++)
             {
-                GameObject clone = Instantiate(drops[Random.Range(0, drops.Length + 1)], this.transform.position, drops[Random.Range(0, drops.Length + 1)].transform.rotation) as GameObject;
-
+                Instantiate(drops[0], transform.position, transform.rotation);
             }
 
 
