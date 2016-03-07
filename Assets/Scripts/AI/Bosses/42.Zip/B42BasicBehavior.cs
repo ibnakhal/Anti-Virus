@@ -116,7 +116,8 @@ public class B42BasicBehavior : MonoBehaviour {
             Time.timeScale = 0;
             yield return new WaitForSeconds(2);
             player.GetComponent<PlayerController>().health = 0;
-  
+            Time.timeScale = 1;
+
         }
         else {
             stageChange = true;
