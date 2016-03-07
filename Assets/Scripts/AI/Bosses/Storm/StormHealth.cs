@@ -18,9 +18,9 @@ public class StormHealth : MonoBehaviour
     [SerializeField]
     public GameObject deathParticles, wormRearNeighbor = null;
     [SerializeField]
-    public GameObject[] drops;
+    public GameObject spawn;
     [SerializeField]
-    private int dropPercent, truepercent;
+    private int spawnCount;
 
 
 
@@ -37,9 +37,9 @@ public class StormHealth : MonoBehaviour
                 wormRearNeighbor.GetComponent<StormSegment>().front = null;
             }
 
-for (int x = 0; x<5;x++)
+        for (int x = 0; x<spawnCount; x++)
             {
-                Instantiate(drops[0], transform.position, transform.rotation);
+                Instantiate(spawn, transform.position, transform.rotation);
             }
 
 

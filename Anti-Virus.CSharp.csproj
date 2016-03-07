@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxBulletBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxemBasicBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\Stage1.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\Storm\Failsafe.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Storm\StormAI.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Storm\StormHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Storm\StormSegment.cs" />

@@ -55,9 +55,7 @@ public class StormAI : MonoBehaviour {
             }
             else
             {
-                vector = player.position;
-                this.transform.LookAt(vector+ new Vector3(0,2,0));
-                Move();
+                Targeting();
             }
         }
         if (Other.tag == "Player")
@@ -69,5 +67,11 @@ public class StormAI : MonoBehaviour {
     public void Move()
     {
         this.transform.Translate(Vector3.forward * Time.deltaTime * force);
+    }
+    public void Targeting()
+    {
+        vector = player.position;
+        this.transform.LookAt(vector + new Vector3(0, 2, 0));
+        Move();
     }
 }
