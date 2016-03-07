@@ -22,7 +22,10 @@ public class B42BasicBehavior : MonoBehaviour {
     private GameObject player;
     [SerializeField]
     private bool stageChange;
-
+    [SerializeField]
+    private GameObject egg;
+    [SerializeField]
+    private Transform[] spawnSpots;
     
     [Header ("Color Pulsing")]
     public float lerpValue;
@@ -46,7 +49,10 @@ public class B42BasicBehavior : MonoBehaviour {
     private GameObject destructible;
 
 
-
+    public void GetHurt(int damage)
+    {
+        health -= damage;
+    }
     // Use this for initialization
     void Start () {
 
@@ -79,9 +85,9 @@ public class B42BasicBehavior : MonoBehaviour {
             lerpValue = 0;
         }
 
-        if(health <= 0 && !stageChange)
+        if(health <= 0)// && !stageChange)
         {
-            Destroy(destructible);
+            Destroy(destructible.gameObject);
         }
     }
 
@@ -111,18 +117,11 @@ public class B42BasicBehavior : MonoBehaviour {
             Debug.Log(CountdownTime - x);
         }
 
-        if (finalStage)
-        {
-            Time.timeScale = 0;
-            yield return new WaitForSeconds(2);
-            player.GetComponent<PlayerController>().health = 0;
-            Time.timeScale = 1;
 
-        }
-        else {
+
             stageChange = true;
             StartCoroutine(StageChange());
-        }
+
         Debug.Log("TIME!");
     }
 
@@ -145,10 +144,19 @@ public class B42BasicBehavior : MonoBehaviour {
 
             timer = 0;
             duration -= 0.01f;
-            if(duration < 0.01f)
+            if (duration < 0.01f)
             {
-                stageChange = false;
-                StartCoroutine(NextStage());
+                if (finalStage)
+                {
+                    yield return new WaitForSeconds(2);
+                    player.GetComponent<PlayerController>().health = 0;
+
+                }
+                else
+                {
+                    stageChange = false;
+                    StartCoroutine(NextStage());
+                }
             }
         }
     }
@@ -166,7 +174,11 @@ public class B42BasicBehavior : MonoBehaviour {
         }
         player.GetComponent<PlayerController>().health -= (int)(player.GetComponent<PlayerController>().maxHp * 0.2f);
         nextStage.GetComponent<B42BasicBehavior>().health = health;
+        for(int x = 0; x< spawnSpots.Length; x++)
+        {
+            Instantiate(egg, spawnSpots[x].position, Quaternion.identity);
 
+        }
     }
 
 

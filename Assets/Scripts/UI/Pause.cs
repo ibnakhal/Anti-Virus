@@ -36,7 +36,7 @@ public class Pause : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             print("ESCAPED");
            togglePause();
