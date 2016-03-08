@@ -56,12 +56,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -130,6 +124,7 @@
     <Compile Include="Assets\Scripts\AI\Enemies\Turret\TurretAI.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\Bodyhitter.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\Death.cs" />
+    <Compile Include="Assets\Scripts\AI\Enemies\wormAI\SegmentControl.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\SegmentFollow.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\wormAI\wAI.cs" />
     <Compile Include="Assets\Scripts\AI\OnEnter.cs" />

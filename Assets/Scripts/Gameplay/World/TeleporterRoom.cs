@@ -29,10 +29,10 @@ public class TeleporterRoom : MonoBehaviour
 
     public void Update()
     {
-        if(Deposit.GetComponentInParent<TeleporterRoom>().cleared)
+      /*  if(Deposit.GetComponentInParent<TeleporterRoom>().cleared)
         {
 
-        }
+        }*/
     }
 
 

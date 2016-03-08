@@ -29,7 +29,8 @@ public class EnemyHealthScript : MonoBehaviour {
 
         if (health <= 0)
         {
-            Instantiate(deathParticles,this.transform.position,this.transform.rotation);
+            Debug.Log("DEAD");
+            Instantiate(deathParticles, transform.position, transform.rotation);
             if (wormRearNeighbor != null)
             {
                 wormRearNeighbor.GetComponent<SegmentFollow>().neighbor = null;
@@ -42,7 +43,7 @@ public class EnemyHealthScript : MonoBehaviour {
                 
             }
 
-
+            gameObject.GetComponentInParent<SegmentControl>().Parts.Remove(gameObject);
             Destroy(this.gameObject);
         }
 	}
