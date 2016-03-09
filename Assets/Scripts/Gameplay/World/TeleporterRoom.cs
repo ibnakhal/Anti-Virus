@@ -29,10 +29,20 @@ public class TeleporterRoom : MonoBehaviour
 
     public void Update()
     {
-      /*  if(Deposit.GetComponentInParent<TeleporterRoom>().cleared)
+        if(Deposit.GetComponentInParent<TeleporterRoom>().cleared)
         {
+            sys0.gameObject.GetComponent<Renderer>().material = c0;
+            sys1.gameObject.GetComponent<Renderer>().material = c1;
 
-        }*/
+        }
+        if (Deposit.GetComponentInParent<TeleporterRoom>().bossRoom)
+        {
+            sys0.gameObject.GetComponent<Renderer>().material = b0;
+            sys1.gameObject.GetComponent<Renderer>().material = b1;
+
+
+        }
+
     }
 
 

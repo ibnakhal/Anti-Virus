@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RoomController : MonoBehaviour {
 
 
     [SerializeField]
-    private GameObject[] contents;
+    public List<GameObject> contents = new List<GameObject>();
     [SerializeField]
     private GameObject reward;
     [SerializeField]
@@ -18,12 +19,14 @@ public class RoomController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-        if (contents == null)
+        if (contents == null || contents.Count == 0)
         {
+            Debug.Log("Done");
             reward.SetActive(true);
             for (int x = 0; x < doors.Length; x++)
             {
                 doors[x].SetActive(true);
+                doors[x].GetComponent<TeleporterRoom>().cleared = true;
             }
         }
 
@@ -38,7 +41,7 @@ public class RoomController : MonoBehaviour {
     {
         if(Other.tag == "Player")
         {
-            for (int x = 0; x< contents.Length; x++)
+            for (int x = 0; x< contents.Count; x++)
             {
                 contents[x].SetActive(true);
             }

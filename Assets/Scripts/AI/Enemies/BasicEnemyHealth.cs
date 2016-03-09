@@ -25,6 +25,8 @@ public class BasicEnemyHealth : MonoBehaviour {
         if(health <=0)
         {
             Instantiate(DeathParticles, this.transform.position, this.transform.rotation);
+            toDie.GetComponentInParent<RoomController>().contents.Remove(toDie);
+
             Destroy(toDie);
 
             truepercent = Random.Range(0, 101);

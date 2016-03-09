@@ -14,6 +14,8 @@ public class SegmentControl : MonoBehaviour {
         if (Parts == null || Parts.Count == 0)
         {
             Debug.Log("I'm empty");
+            gameObject.GetComponentInParent<RoomController>().contents.Remove(gameObject);
+
             Destroy(this.gameObject);
         }
 	
