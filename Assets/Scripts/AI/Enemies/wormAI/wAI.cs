@@ -21,7 +21,10 @@ public class wAI : MonoBehaviour
     public float force = 8f;
     [SerializeField]
     private int dmg;
-
+    [SerializeField]
+    public GameObject rear;
+    [SerializeField]
+    private EnemyHealthScript health;
 
 
 
@@ -34,12 +37,17 @@ public class wAI : MonoBehaviour
         this.transform.LookAt(vector);
         this.transform.Translate(Vector3.forward * Time.deltaTime);
         this.GetComponent<Collider>().enabled = true;
+        health = this.gameObject.GetComponent<EnemyHealthScript>();
     }
 
 
     public void Update()
     {
         this.transform.Translate(Vector3.forward * Time.deltaTime * force);
+        if(rear == null)
+        {
+            health.health = 0;
+        }
 
     }
     /// <summary>

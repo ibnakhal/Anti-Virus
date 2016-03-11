@@ -23,6 +23,7 @@ public class GunPickup : MonoBehaviour
             if (!notGun)
             {
                 gControl.m_WeaponList[gunID].owned = true;
+                gControl.m_WeaponList[gunID].Load();
 
             }
             gControl.m_WeaponList[gunID].ammo += ammoToAdd;

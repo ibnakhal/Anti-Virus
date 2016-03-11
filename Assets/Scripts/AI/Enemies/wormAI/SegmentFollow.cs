@@ -48,6 +48,7 @@ public class SegmentFollow : MonoBehaviour {
             this.GetComponentInChildren<Collider>().enabled = false;
             GameObject m_this = this.gameObject;
             m_this.AddComponent<wAI>();
+            m_this.GetComponent<wAI>().rear = m_this.GetComponent<EnemyHealthScript>().wormRearNeighbor;
             //this.gameObject.AddComponent<Mesh>();
             m_this.AddComponent<MeshFilter>();
             m_this.AddComponent<MeshRenderer>();
