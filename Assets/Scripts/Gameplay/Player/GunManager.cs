@@ -22,7 +22,7 @@ public class GunManager : MonoBehaviour {
     [SerializeField]
     private AudioSource aSource;
     [SerializeField]
-    private bool firing = false, weaponChange = false;
+    public bool firing = false, weaponChange = false;
     public void Start()
     {
         m_currentWeapon = 0;
@@ -47,6 +47,9 @@ public class GunManager : MonoBehaviour {
         if (Input.GetMouseButton(0) && m_WeaponList[m_currentWeapon].isloaded == true && m_WeaponList[m_currentWeapon].ammo>0 && m_WeaponList[m_currentWeapon].cooldown == false && weaponChange == false)
         {
             m_WeaponList[m_currentWeapon].Fire();
+            Debug.Log("Firin");
+
+            Debug.Log("WeaponChange is " + weaponChange);
             if (!firing)
             {
                 
@@ -126,20 +129,30 @@ public class GunManager : MonoBehaviour {
 	public IEnumerator Unload(int inputAsInt)
 
 	{
-        weaponChange = true;
-        lastWeapon = m_currentWeapon;
-		m_WeaponList [m_currentWeapon].gunModel.GetComponent<Animation> ().Play (m_WeaponList [m_currentWeapon].uAnimation.name);
-		yield return new WaitForSeconds (m_WeaponList [m_currentWeapon].uAnimation.length);
-		m_WeaponList[lastWeapon].gunModel.SetActive(false);
-		m_WeaponList [m_currentWeapon].Unload ();
-        m_currentWeapon = inputAsInt - 1;
-        m_WeaponList[m_currentWeapon].Load();
-        weaponChange = false;
-
-
+            weaponChange = true;
+            lastWeapon = m_currentWeapon;
+            m_WeaponList[m_currentWeapon].gunModel.GetComponent<Animation>().Play(m_WeaponList[m_currentWeapon].uAnimation.name);
+            yield return new WaitForSeconds(m_WeaponList[m_currentWeapon].uAnimation.length);
+            m_WeaponList[lastWeapon].gunModel.SetActive(false);
+            m_WeaponList[m_currentWeapon].Unload();
+            m_currentWeapon = inputAsInt - 1;
+            m_WeaponList[m_currentWeapon].Load();
+            weaponChange = false;
 
 	}
-
+    public IEnumerator SpecialUnload(int inputAsInt)
+    {
+        weaponChange = true;
+        lastWeapon = m_currentWeapon;
+        m_WeaponList[m_currentWeapon].gunModel.GetComponent<Animation>().Play(m_WeaponList[m_currentWeapon].uAnimation.name);
+        yield return new WaitForSeconds(m_WeaponList[m_currentWeapon].uAnimation.length);
+        m_WeaponList[lastWeapon].gunModel.SetActive(false);
+        Debug.Log("CurrentWeapon" + m_currentWeapon);
+        m_WeaponList[m_currentWeapon].Unload();
+        m_currentWeapon = inputAsInt;
+        m_WeaponList[m_currentWeapon].Load();
+        weaponChange = false;
+    }
 
     public void AmmoUp(int ammotypes, int ammoCount)
     {

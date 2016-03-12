@@ -94,6 +94,7 @@ public class Weapon
             case GunType.Rigidbody:
                 for (int x = 0; x < bulletCount; x++)
                 {
+                    Debug.Log("InTheCase");
                     GameObject clone = MonoBehaviour.Instantiate(bulletPrefab, barrel[x].position, barrel[x].rotation) as GameObject;
                     Debug.Log(clone);
                     clone.GetComponent<BulletBehavior>().damage = baseDamage;
