@@ -140,19 +140,6 @@ public class GunManager : MonoBehaviour {
             weaponChange = false;
 
 	}
-    public IEnumerator SpecialUnload(int inputAsInt)
-    {
-        weaponChange = true;
-        lastWeapon = m_currentWeapon;
-        m_WeaponList[m_currentWeapon].gunModel.GetComponent<Animation>().Play(m_WeaponList[m_currentWeapon].uAnimation.name);
-        yield return new WaitForSeconds(m_WeaponList[m_currentWeapon].uAnimation.length);
-        m_WeaponList[lastWeapon].gunModel.SetActive(false);
-        Debug.Log("CurrentWeapon" + m_currentWeapon);
-        m_WeaponList[m_currentWeapon].Unload();
-        m_currentWeapon = inputAsInt;
-        m_WeaponList[m_currentWeapon].Load();
-        weaponChange = false;
-    }
 
     public void AmmoUp(int ammotypes, int ammoCount)
     {

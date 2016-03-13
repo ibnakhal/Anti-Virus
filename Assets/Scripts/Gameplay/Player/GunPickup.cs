@@ -23,15 +23,17 @@ public class GunPickup : MonoBehaviour
             if (!notGun)
             {
                 gControl.m_WeaponList[gunID].owned = true;
-                //gControl.m_WeaponList[gControl.m_currentWeapon].isloaded = false;
-                StartCoroutine(gControl.SpecialUnload(gunID+1));
+
+                gControl.m_WeaponList[gControl.m_currentWeapon].isloaded = false;
+
+                gControl.StartCoroutine(gControl.Unload(gunID+1));
 
                 Debug.Log("Passed");
-             //   gControl.weaponChange = false;
+                gControl.weaponChange = false;
 
-               // gControl.m_WeaponList[gunID].Load();
-             //   gControl.m_WeaponList[gControl.m_currentWeapon].isloaded = true;
-
+                gControl.m_WeaponList[gunID].Load();
+                gControl.m_WeaponList[gControl.m_currentWeapon].isloaded = true;
+                
 
             }
             gControl.m_WeaponList[gunID].ammo += ammoToAdd;
