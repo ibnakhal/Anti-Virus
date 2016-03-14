@@ -8,7 +8,9 @@ public class RoomController : MonoBehaviour {
     [SerializeField]
     public List<GameObject> contents = new List<GameObject>();
     [SerializeField]
-    private GameObject reward;
+    private GameObject[] reward;
+    [SerializeField]
+    private Transform spawn;
     [SerializeField]
     private GameObject[] doors;
 	// Use this for initialization
@@ -22,12 +24,13 @@ public class RoomController : MonoBehaviour {
         if (contents == null || contents.Count == 0)
         {
             Debug.Log("Done");
-            reward.SetActive(true);
             for (int x = 0; x < doors.Length; x++)
             {
                 doors[x].SetActive(true);
                 doors[x].GetComponent<TeleporterRoom>().cleared = true;
             }
+            int rando = Random.Range(0, reward.Length);
+            Instantiate(reward[rando], spawn.position, spawn.rotation);
         }
 
 
