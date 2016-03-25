@@ -12,6 +12,8 @@ public class TeleporterRoom : MonoBehaviour
     [SerializeField]
     public bool bossRoom;
     [SerializeField]
+    public bool boonRoom;
+    [SerializeField]
     public Transform ownDeposit;
     [SerializeField]
     private ParticleSystem sys0;
@@ -29,7 +31,7 @@ public class TeleporterRoom : MonoBehaviour
 
     public void Update()
     {
-        if(Deposit.GetComponentInParent<TeleporterRoom>().cleared)
+        if(Deposit.GetComponentInParent<TeleporterRoom>().cleared == true && !Deposit.GetComponentInParent<TeleporterRoom>().boonRoom)
         {
             sys0.gameObject.GetComponent<Renderer>().material = c0;
             sys1.gameObject.GetComponent<Renderer>().material = c1;

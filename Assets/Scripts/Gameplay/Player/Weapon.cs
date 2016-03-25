@@ -39,7 +39,7 @@ public class Weapon
     public int bulletCount;
     public float spread = 5;
     [SerializeField]
-    private int baseDamage = 1;
+    public int baseDamage = 1;
     public float damageReductionOverDistance;
     public float areaOfEffectBaseDamage;
     public float areaOfEffectRange;
@@ -122,20 +122,10 @@ public class Weapon
                     {
                         Debug.Log("HIT");
                         GameObject enemy = hit.transform.gameObject;
-                        if (hit.transform.tag == "Baby")
-                        {
-                            enemy.GetComponentInParent<EnemyHealthScript>().GetHurt(baseDamage);
-                        }
-                        if (hit.transform.tag == "Boss")
-                        {
-                            enemy.GetComponent<NyxemBasicBehavior>().GetHurt(baseDamage);
-                        }
-                        else
-                        {
-                            enemy.GetComponent<EnemyHealthScript>().GetHurt(baseDamage);
+                            enemy.gameObject.SendMessage("GetHurt", baseDamage);
+
                         }
                     }
-                }
 
                 }
                 ammo --;

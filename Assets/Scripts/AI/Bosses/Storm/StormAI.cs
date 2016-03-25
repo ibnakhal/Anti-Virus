@@ -18,19 +18,29 @@ public class StormAI : MonoBehaviour {
     private int threshold = 3;
     [SerializeField]
     private Transform player;
+    [SerializeField]
+    public GameObject rear;
+    [SerializeField]
+    private StormHealth health;
 
-	// Use this for initialization
-	public void Start () {
+    // Use this for initialization
+    public void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         vector = new Vector3(Random.Range(-360, 360), Random.Range(-360, 360), Random.Range(-360, 360));
         this.transform.LookAt(vector);
         this.transform.Translate(Vector3.forward * Time.deltaTime);
         this.GetComponent<Collider>().enabled = true;
+        health = this.gameObject.GetComponent<StormHealth>();
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         this.transform.Translate(Vector3.forward * Time.deltaTime * force);
+        if (rear == null)
+        {
+            health.health = 0;
+        }
 
     }
 

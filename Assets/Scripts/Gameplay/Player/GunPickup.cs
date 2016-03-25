@@ -12,7 +12,7 @@ public class GunPickup : MonoBehaviour
     [SerializeField]
     private bool notGun;
 
-
+  
 
     public void OnTriggerEnter(Collider Other)
     {

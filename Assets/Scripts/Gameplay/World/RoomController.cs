@@ -13,6 +13,8 @@ public class RoomController : MonoBehaviour {
     private Transform spawn;
     [SerializeField]
     private GameObject[] doors;
+    [SerializeField]
+    private bool spent = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -21,7 +23,7 @@ public class RoomController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-        if (contents == null || contents.Count == 0)
+        if (contents == null || contents.Count == 0 && !spent)
         {
             Debug.Log("Done");
             for (int x = 0; x < doors.Length; x++)
@@ -31,6 +33,7 @@ public class RoomController : MonoBehaviour {
             }
             int rando = Random.Range(0, reward.Length);
             Instantiate(reward[rando], spawn.position, spawn.rotation);
+            spent = true;
         }
 
 

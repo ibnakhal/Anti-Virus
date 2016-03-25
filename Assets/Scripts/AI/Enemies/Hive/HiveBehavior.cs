@@ -14,6 +14,8 @@ public class HiveBehavior : MonoBehaviour {
     private float turnspeed;
     [SerializeField]
     private bool inside;
+    [SerializeField]
+    private int x;
 
 	// Use this for initialization
 	void Start () {
@@ -22,26 +24,31 @@ public class HiveBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	}
+        if (inside)
+        {
+            //this is the wrong way to do it, need a transform.translate in deltaTime but limit it in another way.
+            while (x < destinationThreshold)
+            {
+                transform.Translate(Vector3.up * speed * Time.deltaTime);
+                x++;
+            }
+
+        }
+    }
 
     public void OnTriggerEnter(Collider Other)
     {
         if(Other.tag == "Player")
         {
+            inside = true;
+            x = 0;
             Activate();
         }
     }
 
     public void Activate()
     {
-        if (inside)
-        {
-            for (int x = 0; x < destinationThreshold; x++)
-            {
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
-            }
-
-        }
+       
     }
 
 }

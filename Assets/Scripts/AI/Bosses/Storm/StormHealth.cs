@@ -42,6 +42,7 @@ public class StormHealth : MonoBehaviour
                 Instantiate(spawn, transform.position, transform.rotation);
             }
 
+            gameObject.GetComponentInParent<SegmentControl>().Parts.Remove(gameObject);
 
             Destroy(this.gameObject);
         }

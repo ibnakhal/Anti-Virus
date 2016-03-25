@@ -29,9 +29,11 @@ public class StormSegment : MonoBehaviour {
             this.GetComponentInChildren<Collider>().enabled = false;
             GameObject m_this = this.gameObject;
             m_this.AddComponent<StormAI>();
+            m_this.GetComponent<StormAI>().rear = m_this.GetComponent<StormHealth>().wormRearNeighbor;
+
             //this.gameObject.AddComponent<Mesh>();
-           // m_this.AddComponent<MeshFilter>();
-           // m_this.AddComponent<MeshRenderer>();
+            // m_this.AddComponent<MeshFilter>();
+            // m_this.AddComponent<MeshRenderer>();
             this.transform.localScale -= potentialSizeUp;
            // m_this.AddComponent<SphereCollider>();
            // m_this.AddComponent<Rigidbody>();

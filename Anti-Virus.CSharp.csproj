@@ -55,12 +55,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -101,6 +95,7 @@
     <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\BusfixBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\ILYBFXHealth.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\BGFXILY\ILYBGFXBasicBehavior.cs" />
+    <Compile Include="Assets\Scripts\AI\Bosses\BossAnthemChange.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\CodeRed\CodeRedBasicBehavior.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\CodeRed\LaserRender.cs" />
     <Compile Include="Assets\Scripts\AI\Bosses\Nyxem\NyxBulletBehavior.cs" />
@@ -145,8 +140,11 @@
     <Compile Include="Assets\Scripts\Gameplay\Player\Stats.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\Twister.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\World\GunUpgrade.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\LevelConstructor.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\World\LootBox.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\PickupBehavior.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\World\RandomSpawn.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\RoomController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\TeleportControl.cs" />
     <Compile Include="Assets\Scripts\Gameplay\World\TeleporterRoom.cs" />
