@@ -64,6 +64,8 @@ public class PayloadMovement : MonoBehaviour
 
     private Vector3 temp;
 
+    [SerializeField]
+    private Vector3 normal;
 
 
     // Use this for initialization
@@ -124,7 +126,9 @@ public class PayloadMovement : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         Debug.Log("I HIT");
-        Vector3 normal = collision.contacts[0].normal;
+        Debug.Log("Collision points: " + collision.contacts.Length);
+        
+        normal = collision.contacts[0].normal;
 
         Collider Other = collision.collider;
 
@@ -155,6 +159,7 @@ public class PayloadMovement : MonoBehaviour
     public void Kamikazee()
     {
         GameObject clone = Instantiate(Explosion, this.transform.position, this.transform.rotation) as GameObject;
+        GetComponentInParent<RoomController>().contents.Remove(this.gameObject);
         Destroy(this.gameObject);
     }
     public IEnumerator Looking()

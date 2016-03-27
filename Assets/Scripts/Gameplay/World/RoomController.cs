@@ -45,7 +45,7 @@ public class RoomController : MonoBehaviour {
 
     public void OnTriggerEnter(Collider Other)
     {
-        if(Other.tag == "Player")
+        if(Other.tag == "Player" && !spent)
         {
             for (int x = 0; x< contents.Count; x++)
             {
