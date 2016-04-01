@@ -8,9 +8,13 @@ public class GunUpgrade : MonoBehaviour {
     [SerializeField]
     private GunManager gControl = null;
     [SerializeField]
+    private string objName;
+    [SerializeField]
     private int gunID;
     [SerializeField]
     private float mod;
+    [SerializeField]
+    private GameObject p;
     enum Type
     {
         Speed,
@@ -23,7 +27,7 @@ public class GunUpgrade : MonoBehaviour {
 
     public void Start()
     {
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        p = GameObject.FindGameObjectWithTag("Player");
         gControl = p.GetComponent<GunManager>();
     }
 
@@ -35,6 +39,7 @@ public class GunUpgrade : MonoBehaviour {
     {
         if (Other.tag == "Player")
         {
+            p.GetComponent<PlayerController>().StartCoroutine(p.GetComponent<PlayerController>().Warner(objName));
             switch (typed)
             {
                 case Type.Speed:

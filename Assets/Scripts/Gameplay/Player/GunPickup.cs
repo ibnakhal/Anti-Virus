@@ -10,6 +10,8 @@ public class GunPickup : MonoBehaviour
     [SerializeField]
     Vector3 direction = new Vector3(0, 0, 0);
     [SerializeField]
+    private string objName;
+    [SerializeField]
     private bool notGun;
 
   
@@ -19,6 +21,7 @@ public class GunPickup : MonoBehaviour
         if(Other.tag == "Player")
         {
             gControl = Other.GetComponent<GunManager>();
+            Other.GetComponent<PlayerController>().StartCoroutine(Other.GetComponent<PlayerController>().Warner(objName));
 
             if (!notGun)
             {

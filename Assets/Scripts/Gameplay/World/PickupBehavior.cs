@@ -56,7 +56,7 @@ public class PickupBehavior : MonoBehaviour
                 
                 case Type.trojanHp:
                     pC.HealUp(modifier);
-                    pC.trojand = true;
+                    pC.Troj();
                     break;
                 case Type.malware:
                     Debug.Log("Boombooom");

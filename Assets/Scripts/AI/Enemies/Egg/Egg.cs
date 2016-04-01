@@ -11,7 +11,10 @@ public class Egg : MonoBehaviour {
     {
         int rando = Random.Range(0, spawnRange.Length);
         Instantiate(sparkle, this.transform.position, this.transform.rotation);
-        Instantiate(spawnRange[rando], this.transform.position, this.transform.rotation);
+        GameObject clone = Instantiate(spawnRange[rando], this.transform.position, this.transform.rotation) as GameObject;
+        GetComponentInParent<RoomController>().contents.Add(clone);
+        GetComponentInParent<RoomController>().contents.Remove(this.gameObject);
+        clone.transform.SetParent(this.transform.parent);
         Destroy(this.gameObject);
 
     }

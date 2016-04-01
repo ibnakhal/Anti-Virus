@@ -43,6 +43,8 @@ public class B42BasicBehavior : MonoBehaviour {
     private bool charging;
     [SerializeField]
     private bool pulsing;
+    [SerializeField]
+    private Transform trigger;
 
 
     [SerializeField]
@@ -176,8 +178,8 @@ public class B42BasicBehavior : MonoBehaviour {
         nextStage.GetComponent<B42BasicBehavior>().health = health;
         for(int x = 0; x< spawnSpots.Length; x++)
         {
-            Instantiate(egg, spawnSpots[x].position, Quaternion.identity);
-
+           GameObject clone = Instantiate(egg, spawnSpots[x].position, Quaternion.identity) as GameObject ;
+            clone.transform.SetParent(trigger);
         }
     }
 

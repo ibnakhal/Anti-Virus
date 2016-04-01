@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if(trojand)
+       /* if(trojand)
         {
             if (!trojan1)
             {
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
             jumpSpeed = jSet;
             trojan1 = false;
             trojand = false;
-        }
+        }*/ 
 
         if(health>maxHp)
         {
@@ -144,11 +144,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void Trojan()
+    public void Troj()
     {
-        jumpSpeed = jTro;
-        runSpeed = rTro;
-        turnSpeed = tTro;
+        diseases.GetComponent<Trojan>().Infect();
+
     }
     public IEnumerator Warner(string message)
     {
