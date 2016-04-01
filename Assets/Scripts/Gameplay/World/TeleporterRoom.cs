@@ -27,6 +27,10 @@ public class TeleporterRoom : MonoBehaviour
     private Material b0;
     [SerializeField]
     private Material b1;
+    [SerializeField]
+    private Material g0;
+    [SerializeField]
+    private Material g1;
 
 
     public void Update()
@@ -41,6 +45,13 @@ public class TeleporterRoom : MonoBehaviour
         {
             sys0.gameObject.GetComponent<Renderer>().material = b0;
             sys1.gameObject.GetComponent<Renderer>().material = b1;
+
+
+        }
+        if (Deposit.GetComponentInParent<TeleporterRoom>().boonRoom)
+        {
+            sys0.gameObject.GetComponent<Renderer>().material = g0;
+            sys1.gameObject.GetComponent<Renderer>().material = g1;
 
 
         }

@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
         trojand = false;
         diseases.GetComponent<Malware>().Maled = false;
         diseases.GetComponent<Adware>().triggered = false;
+        diseases.GetComponent<Trojan>().trojan = false;
 
     }
 

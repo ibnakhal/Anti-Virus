@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Trojan : MonoBehaviour {
     [SerializeField]
-    private bool trojan = false;
+    public bool trojan = false;
     [SerializeField]
     private PlayerController pC;
     [SerializeField]
