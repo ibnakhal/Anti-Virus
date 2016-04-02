@@ -8,6 +8,8 @@ public class BossAnthemChange : MonoBehaviour {
     private AudioClip musicClip;
     [SerializeField]
     private AudioClip klaxClip;
+    [SerializeField]
+    private bool spent;
     public void Start()
     {
         source = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
@@ -15,9 +17,10 @@ public class BossAnthemChange : MonoBehaviour {
 
     public void OnTriggerEnter (Collider Other)
     {
-        if(Other.tag == "Player")
+        if(Other.tag == "Player" && !spent)
         {
             StartCoroutine(MusicPlay());
+            spent = true;
         }
 
     }

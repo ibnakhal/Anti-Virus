@@ -15,15 +15,13 @@ public class PlayerController : MonoBehaviour
 {
     //Variables being declared
     [SerializeField] 
-    public float jumpSpeed = 15.0f, runSpeed = 3.0f, turnSpeed = 180.0f, jSet,rSet,tSet,jTro = 9f,rTro=2f,tTro=100.0f, spawnTimer;
+    public float jumpSpeed = 15.0f, runSpeed = 3.0f, turnSpeed = 180.0f,spawnTimer;
     [SerializeField]
     private string forwardBackInput = "Vertical", leftRighInput = "Horizontal";
     [SerializeField]
     private CharacterMover mover = null;
     [SerializeField]
     public int health, maxHp, warningShowLimit,gameOver, cryoHit, cryoMax;
-    [SerializeField]
-    public bool trojand = false, trojan1 = false;
     [SerializeField]
     private Text txt, hTxt;
     [SerializeField]
@@ -36,9 +34,7 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         mover = this.GetComponent<CharacterMover>();
-        jSet = jumpSpeed;
-        rSet = runSpeed;
-        tSet = turnSpeed;
+
         txt.enabled = true;
         txt.text = "";
        // StartCoroutine(Spawned(spawnTimer));
@@ -97,26 +93,6 @@ public class PlayerController : MonoBehaviour
             hTxt.color = Color.green;
         }
 
-
-       /* if(trojand)
-        {
-            if (!trojan1)
-            {
-                Trojan();
-
-                StartCoroutine(Warner("TROJAN DETECTED"));
-                trojan1 = true;
-            }
-        }
-        else
-        {
-            
-            turnSpeed = tSet;
-            runSpeed = rSet;
-            jumpSpeed = jSet;
-            trojan1 = false;
-            trojand = false;
-        }*/ 
 
         if(health>maxHp)
         {
@@ -185,7 +161,6 @@ public class PlayerController : MonoBehaviour
 
     public void DiseaseClean()
     {
-        trojand = false;
         diseases.GetComponent<Malware>().Maled = false;
         diseases.GetComponent<Adware>().triggered = false;
         diseases.GetComponent<Trojan>().trojan = false;

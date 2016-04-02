@@ -55,7 +55,7 @@ public class SegmentFollow : MonoBehaviour {
             this.transform.localScale -= new Vector3(99, 99, 99);
             m_this.AddComponent<SphereCollider>();
             m_this.AddComponent<Rigidbody>();
-
+            this.GetComponent<AudioSource>().Play();
 
             m_this.GetComponent<Rigidbody>().useGravity = false;
             m_this.GetComponent<Rigidbody>().angularDrag = 0;

@@ -39,10 +39,14 @@ public class StormHealth : MonoBehaviour
 
         for (int x = 0; x<spawnCount; x++)
             {
-                Instantiate(spawn, transform.position, transform.rotation);
+                GameObject clone = Instantiate(spawn, transform.position, transform.rotation) as GameObject;
+                clone.transform.SetParent(gameObject.GetComponentInParent<StormControl>().parent.transform);
+                gameObject.GetComponentInParent<StormControl>().parent.GetComponent<RoomController>().contents.Add(clone);
+
+
             }
 
-            gameObject.GetComponentInParent<SegmentControl>().Parts.Remove(gameObject);
+            gameObject.GetComponentInParent<StormControl>().Parts.Remove(gameObject);
 
             Destroy(this.gameObject);
         }

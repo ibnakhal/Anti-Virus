@@ -44,7 +44,8 @@ public class Pause : MonoBehaviour
 
         if (Input.GetKey(KeyCode.F12))
         {
-            Application.Quit();
+            togglePause();
+            Application.LoadLevel(0);
         }
     }
      

@@ -15,6 +15,8 @@ public class Stats : MonoBehaviour {
     private Malware dMal;
     [SerializeField]
     private Adware dAd;
+    [SerializeField]
+    private Trojan dTro;
 
 
     [Header("Player Stats")]
@@ -58,14 +60,14 @@ public class Stats : MonoBehaviour {
                 gMan = playerObject.GetComponent<GunManager>();
                 dMal = GameObject.FindGameObjectWithTag("Carrier").GetComponent<Malware>();
                 dAd = GameObject.FindGameObjectWithTag("Carrier").GetComponent<Adware>();
-
+                dTro = GameObject.FindGameObjectWithTag("Carrier").GetComponent<Trojan>();
             for (int x = 0; x < ammo.Length; x++)
                 {
                     gMan.m_WeaponList[x].ammo = ammo[x];
                 }
                 pCon.maxHp = maxHp;
                 pCon.health = hP;
-                pCon.trojand = trojan;
+                dTro.trojan = trojan;
                 dMal.Maled = mal;
                 dAd.triggered = ad;
 
@@ -86,7 +88,7 @@ public class Stats : MonoBehaviour {
         {
             maxHp = pCon.maxHp;
             hP = pCon.health;
-            trojan = pCon.trojand;
+            trojan = dTro.trojan;
             mal = dMal.Maled;
             ad = dAd.triggered;
 
